@@ -1,16 +1,65 @@
 # requestum-code-recipes-ios
 
-### Helpers
-[DataSource](Helpers/DataSource.swift) - Save to UserDefaults simple types and mappable via ObjectMapper
+### Application
+[App](Application/App.swift) - Setup third party services and common app stuff
+<br>
 
 ### Extensions
 
+#### Foundation
+
+[FileManager+Ext](Extensions/Foundation/FileManager+Ext.swift) - folders
+<br>
+[String+Validation](Extensions/Foundation/String+Validation.swift) - email regex, spaces
+<br>
+
+#### Network
+
+[DataResponse+Result](Extensions/Network/DataResponse+Result.swift) - Alamofire helpers for API
+<br>
+[NSError+Response](Extensions/Network/NSError+Response.swift) - NSError helpers for API
+<br>
+
+#### UIKit
+[UIApplication+Bundle](Extensions/UIKit/UIApplication+Bundle.swift) - keys from Info.plist
+<br>
+[UIApplication+TopViewController](Extensions/UIKit/UIApplication+TopViewController.swift) - top vc
+<br>
+[UINavigationController+Orientation](Extensions/UIKit/UINavigationController+Orientation.swift) - orientation
+<br>
+[UITableView+Ext](Extensions/UIKit/UITableView+Ext.swift) - generics for cell
+<br>
+[UIView+Inspectable](Extensions/UIKit/UIView+Inspectable.swift) - to use in Storyboard
+<br>
+[UIView+Render](Extensions/UIKit/UIView+Render.swift) - UIView to image
+<br>
+
+### Helpers
+[DataSource](Helpers/DataSource.swift) - save to UserDefaults simple types and mappable via ObjectMapper
+<br>
+[AlertsManager](Helpers/AlertsManager.swift) - show alerts
+<br>
+[HUD](Helpers/HUD.swift) - JGProgressHUD helper
+<br>
+[XibBasedView](Helpers/XibBasedView.swift) - for view with .xib
+<br>
+
 ### Managers
 
-### Controllers
-
-### ViewControllers
-
-### Views
+[DatabaseManager](Managers/DatabaseManager.swift) - Realm database
+<br>
+[DatabaseManager+Schema](Managers/DatabaseManager+Schema.swift) - migration
+<br>
+[RemoteNotificationManager](Managers/RemoteNotificationManager.swift) - Push notifications
+<br>
+[RemoteNotificationsManager+Push](Managers/RemoteNotificationsManager+Push.swift) - to implement actions on app specific push notifications
+<br>
 
 ### Models
+
+[Push](Models/Push.swift) - to implement actions on app specific push notifications
+<br>
+[Token](Models/Token.swift) - OAuth token to use in API
+<br>
+[User](Models/User.swift) - User in API
+<br>
