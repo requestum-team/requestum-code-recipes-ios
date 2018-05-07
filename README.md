@@ -54,6 +54,8 @@
 <br>
 [RemoteNotificationsManager+Push](Managers/RemoteNotificationsManager+Push.swift) - to implement actions on app specific push notifications
 <br>
+[RateManager](Managers/RateManager.swift) - rate the app
+<br>
 
 ### Models
 
