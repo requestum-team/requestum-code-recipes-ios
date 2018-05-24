@@ -50,7 +50,7 @@
 [RateManager](Managers/RateManager.swift) - rate the app
 <br>
 
-###API
+### API
 [DataResponse+Result](Extensions/Network/DataResponse+Result.swift) - Alamofire helpers for API
 <br>
 [NSError+Response](Extensions/Network/NSError+Response.swift) - NSError helpers for API
