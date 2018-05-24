@@ -13,13 +13,6 @@
 [String+Validation](Extensions/Foundation/String+Validation.swift) - email regex, spaces
 <br>
 
-#### Network
-
-[DataResponse+Result](Extensions/Network/DataResponse+Result.swift) - Alamofire helpers for API
-<br>
-[NSError+Response](Extensions/Network/NSError+Response.swift) - NSError helpers for API
-<br>
-
 #### UIKit
 [UIApplication+Bundle](Extensions/UIKit/UIApplication+Bundle.swift) - keys from Info.plist
 <br>
@@ -55,6 +48,20 @@
 [RemoteNotificationsManager+Push](Managers/RemoteNotificationsManager+Push.swift) - to implement actions on app specific push notifications
 <br>
 [RateManager](Managers/RateManager.swift) - rate the app
+<br>
+
+###API
+[DataResponse+Result](Extensions/Network/DataResponse+Result.swift) - Alamofire helpers for API
+<br>
+[NSError+Response](Extensions/Network/NSError+Response.swift) - NSError helpers for API
+<br>
+[ServerConstants](Managers/Server/ServerConstants.swift) - API endpoints, OAuth credentials and other constants needed for API requests
+<br>
+[ObjectManager](Managers/Server/ObjectManager.swift) - base manager for handling API requests
+<br>
+[UserManager](Managers/Server/UserManager.swift) - user entity handling, OAuth, session, user requests
+<br>
+[EventManager](Managers/Server/EventManager.swift) - example of how to use managers for API requests, grouped by entities (Event, Order, Payment etc)
 <br>
 
 ### Models
