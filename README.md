@@ -61,7 +61,7 @@
 <br>
 [UserManager](Managers/Server/UserManager.swift) - user entity handling, OAuth, session, user requests
 <br>
-[EventManager](Managers/Server/EventManager.swift) - example of how to use managers for API requests, grouped by entities (Event, Order, Payment etc)
+[EventManager](Managers/Server/EventManager.swift) - [example] How to use managers for API requests, grouped by entities (Event, Order, Payment etc)
 <br>
 
 ### Models
@@ -70,5 +70,7 @@
 <br>
 [Token](Models/Token.swift) - OAuth token to use in API
 <br>
-[User](Models/User.swift) - User in API
+[User](Models/User.swift) - user entity for API using Mappable
+<br>
+[Currency](Models/Currency.swift) - [example] entity for API using Mappable and saving to Realm database
 <br>
