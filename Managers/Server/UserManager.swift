@@ -20,15 +20,15 @@ class UserManager: ObjectManager {
     func getGuestToken(_ completion: @escaping (_ error: NSError?) -> Void) {
         
         let params = [
-            "grant_type": ServerAPI.SignUpAuth.grantType,
-            "client_id": ServerAPI.SignUpAuth.clientId,
-            "client_secret": ServerAPI.SignUpAuth.clientSecret
+            "grant_type": ServerAPI.Auth.grantType,
+            "client_id": ServerAPI.Auth.clientId,
+            "client_secret": ServerAPI.Auth.clientSecret
         ]
         
         request(.post, serverAPI: .authToken, parameters: params).responseJSON { response in
             
             if let token: Token = response.resultObject() {
-                Token.guestToken = token
+                Token.token = token
             }
             
             completion(response.resultError())
@@ -37,7 +37,7 @@ class UserManager: ObjectManager {
     
     func refreshToken(_ completion: @escaping (_ error: NSError?) -> Void) {
         
-        guard let refreshToken = Token.currentToken?.refreshToken else {
+        guard let refreshToken = Token.token?.refreshToken else {
             
             completion(NSError())
             return
@@ -53,7 +53,7 @@ class UserManager: ObjectManager {
         request(.post, serverAPI: .authToken, parameters: params).responseJSON { response in
             
             if let token: Token = response.resultObject() {
-                Token.currentToken = token
+                Token.token = token
             }
             
             completion(response.resultError())
@@ -73,7 +73,7 @@ class UserManager: ObjectManager {
         request(.post, serverAPI: .authToken, parameters: params).responseJSON { response in
             
             if let token: Token = response.resultObject() {
-                Token.currentToken = token
+                Token.token = token
             }
             
             completion(response.resultError())
@@ -109,7 +109,7 @@ class UserManager: ObjectManager {
         request(.post, serverAPI: .convertToken, parameters: params).responseJSON { response in
             
             if let token: Token = response.resultObject() {
-                Token.currentToken = token
+                Token.token = token
             }
             
             completion(response.resultError())
@@ -167,7 +167,7 @@ class UserManager: ObjectManager {
         }
     }
     
-    func updateUserPhoto(_ photo: UIImage?, _ completion: @escaping (_ error: NSError?, _ user: Profile?) -> Void) {
+    func updateUserPhoto(_ photo: UIImage?, _ completion: @escaping (_ error: NSError?, _ user: User?) -> Void) {
         
         var params: Parameters = [
             "avatar": NSNull()
@@ -178,11 +178,11 @@ class UserManager: ObjectManager {
             params["avatar"] = strBase64
         }
         
-        request(.patch, serverAPI: .profile, parameters: params).responseJSON { response in
+        request(.patch, serverAPI: .user, parameters: params).responseJSON { response in
             
-            let profile: Profile? = response.resultObject()
+            let user: User? = response.resultObject()
             
-            completion(response.resultError(), profile)
+            completion(response.resultError(), user)
         }
     }
 }

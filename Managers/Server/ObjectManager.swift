@@ -50,9 +50,7 @@ class ObjectManager {
                  urlParameters: [String: String]? = nil,
                  encoding: ParameterEncoding = JSONEncoding.default) -> DataRequest {
         
-        let url = serverAPI.fullURL.replacingURLParameters(urlParameters: urlParameters)
-        
-        let dataRequest = manager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers())
+        let dataRequest = manager.request(serverAPI.fullURL, method: method, parameters: parameters, encoding: encoding, headers: headers())
         
         return dataRequest.validate { urlRequest, urlResponse, data -> Request.ValidationResult in
             
@@ -109,12 +107,12 @@ extension ObjectManager: RequestRetrier, RequestAdapter {
     
     public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         
-        if let token = Token.currentToken, let type = token.tokenType, let str = token.accessToken {
+        if let token = Token.token, let type = token.tokenType, let str = token.accessToken {
             var urlRequest = urlRequest
             urlRequest.setValue(type + " " + str, forHTTPHeaderField: "Authorization")
             return urlRequest
             
-        } else if let token = Token.guestToken, let type = token.tokenType, let str = token.accessToken {
+        } else if let token = Token.token, let type = token.tokenType, let str = token.accessToken {
             var urlRequest = urlRequest
             urlRequest.setValue(type + " " + str, forHTTPHeaderField: "Authorization")
             return urlRequest
