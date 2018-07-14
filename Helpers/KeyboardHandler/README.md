@@ -1,4 +1,6 @@
 
+##### NOTE: IQKeyboardManagerSwift is preferred and should be used across all projects. Use KeyboardEventsHandler only when it is really needed and you know what you are doing.
+
 ### KeyboardEventsHandler 
 
  Autoresize view for text input
