@@ -50,6 +50,15 @@
 [RateManager](Managers/RateManager.swift) - rate the app
 <br>
 
+#### Social
+
+[Facebook](Managers/SocialNetworks/Facebook.swift) - Login with Facebook
+<br>
+[GooglePlus](Managers/SocialNetworks/GooglePlus.swift) - Login with GooglePlus
+<br>
+[Twitter](Managers/SocialNetworks/Twitter.swift) - Login with Twitter
+<br>
+
 ### API
 [DataResponse+Result](Extensions/Network/DataResponse+Result.swift) - Alamofire helpers for API
 <br>
