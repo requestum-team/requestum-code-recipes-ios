@@ -245,7 +245,7 @@
 
   </details>
 
-* <a id='avoid-controller-suffix'></a>(<a href='#avoid-controller-suffix'>link</a>) **Avoid `*Controller` in names of classes that aren't view controllers.**
+*  **Avoid `*Controller` in names of classes that aren't view controllers.**
   <details>
 
   #### Why?
@@ -254,7 +254,7 @@
   </details>
 
 ## Style
-<a id='style'>
+
 *  **Don't include types where they can be easily inferred.**
 
   <details>
@@ -375,7 +375,7 @@
 
   </details>
 
-* <a id='favor-constructors'></a>(<a href='#favor-constructors'>link</a>) **Use constructors instead of Make() functions for CGRect, CGPoint, NSRange and others.** [![SwiftLint: legacy_constructor](https://img.shields.io/badge/SwiftLint-legacy__constructor-007A87.svg)](https://github.com/realm/SwiftLint/blob/master/Rules.md#legacy-constructor)
+*  **Use constructors instead of Make() functions for CGRect, CGPoint, NSRange and others.** [![SwiftLint: legacy_constructor](https://img.shields.io/badge/SwiftLint-legacy__constructor-007A87.svg)](https://github.com/realm/SwiftLint/blob/master/Rules.md#legacy-constructor)
 
   <details>
 
@@ -732,7 +732,7 @@
 
 *  **Access control should be at the strictest level possible.** Prefer `public` to `open` and `private` to `fileprivate` unless you need that behavior.
 
-* <a id='avoid-global-functions'></a>(<a href='#avoid-global-functions'>link</a>) **Avoid global functions whenever possible.** Prefer methods within type definitions.
+*  **Avoid global functions whenever possible.** Prefer methods within type definitions.
 
   <details>
 
