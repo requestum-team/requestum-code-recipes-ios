@@ -878,9 +878,11 @@
   ```
 
   </details>
+  
 *  **Use nested enum/struct/class for domain object**
 
   <details>
+  
   ```swift
   // WRONG
   enum UserType: String {
@@ -901,10 +903,9 @@
 
     var type: Type
   }
-
-
   ```
   </details>
+  
 *  **Use optionals only when they have semantic meaning.**
 
 *  **Prefer immutable values whenever possible.** Use `map` and `compactMap` instead of appending to a new collection. Use `filter` instead of removing elements from a mutable collection.

@@ -6,6 +6,7 @@ disabled_rules:
   
 included: # paths to include during linting. `--path` is ignored if present.
   - {project_name}
+  
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
@@ -30,27 +31,24 @@ opt_in_rules:
   - nesting
   - nimble_operator
 
-force_cast: warning # implicitly
+force_cast: warning 
 force_try:
-  severity: warning # explicitly
+  severity: warning 
 line_length: 180
-# file_length:
-#   warning: 300
-#   error: 500
-  # ignore_comment_only_lines: true
+
 type_name:
-  min_length: 2 # only warning
-  max_length: # warning and error
+  min_length: 2 
+  max_length: 
     warning: 50
-  # excluded: iPhone # excluded via string
+
 identifier_name:
-  min_length: # only min_length
-    warning: 2 # only warning
+  min_length: 
+    warning: 2 
 
 vertical_whitespace:
   max_empty_lines: 2
 
-  excluded: # excluded via string array
+  excluded: 
   - id
   - URL
   - iv
@@ -68,13 +66,3 @@ vertical_parameter_alignment_on_call: warning
 switch_case_on_newline: warning
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
-
-custom_rules:
-
-  mark_space:
-    name: "Space Before MARK"
-    regex: "((*\n)*\/\/ MARK)"
-    message: "There should be a double space before // MARK"
-    severity: warning
-
-
