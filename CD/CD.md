@@ -30,7 +30,7 @@ APP_BUILD_NUMBER = 51
 
 ```
 
-3. Create Configurations by duplicating Debug and Release configurations in the project. Set xcconfig files to each configuration
+3. Create Configurations by duplicating Debug and Release configurations in the project like `Production-Debug`, `Staging-Release`. Set corresponding xcconfig files to each configuration
 4. Set Info.plist as 
 
 Bundle Id - `$(PRODUCT_BUNDLE_IDENTIFIER)`<br>
@@ -40,7 +40,7 @@ Build number - `$(APP_BUILD_NUMBER)`<br>
 Bundle Name - `$(APP_NAME)`<br>
 ServerEnvironment - `$(SERVER_ENVIRONMENT)`<br>
 
-5. Google plist run script before compile (plist files should not be included in target)
+5. Google plist run script before compile (plist files should not be included in target) `<APP_FOLDER>` заменить на правильное
 
 ```
 PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/<APP_FOLDER>/Resources/Google"
@@ -68,7 +68,7 @@ esac
 <APP_NAME>Production<br>
 
 For each scheme set corresponding configuration file in each build variants.
-For Example
+For example
 
 ```
 Run -> Development-Debug
@@ -194,9 +194,9 @@ platform :ios do
 
   end
 
-  lane :stagi do
+  lane :staging do
 
-    distribute_adhoc(app_id: app_id_stagi, provisioning_profile: provisioning_profile_stagi, scheme: scheme_stagi)
+    distribute_adhoc(app_id: app_id_staging, provisioning_profile: provisioning_profile_staging, scheme: scheme_staging)
 
   end
 
