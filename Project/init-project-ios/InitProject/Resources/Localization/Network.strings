@@ -1,0 +1,15 @@
+/* 
+  Network.strings
+ 
+
+  Created by Requestum on 7/17/19.
+  Copyright © 2019 Requestum. All rights reserved.
+*/
+
+"Error.NoInternetConnection" = "No Internet connection";
+"Error.ParsingFailed" = "Unexpected response";
+"Error.Unauthorized" = "Unauthorized";
+"Error.NotFound" = "Resource not found";
+"Error.InternalServerError" = "Internal server error";
+"Error.File.Unavalible" = "File unavalible";
+"Error.Loading" = "Loading error";

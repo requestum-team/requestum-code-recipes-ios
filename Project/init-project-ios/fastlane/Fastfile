@@ -1,0 +1,84 @@
+workspace = "App.xcworkspace"
+
+scheme_dev = "AppDevelopment"
+scheme_staging = "AppStaging"
+scheme_prod = "AppProduction"
+
+provisioning_profile_dev = "com.app.app.beta AdHoc"
+provisioning_profile_staging = "com.app.app.beta AdHoc"
+provisioning_profile_prod = "com.app.app AdHoc"
+
+app_id_dev = "com.app.app.beta"
+app_id_staging = "com.app.app.beta"
+app_id_prod = "com.app.app"
+
+crashlytics_api_token = ""
+crashlytics_build_secret = ""
+crashlytics_groups = "rq"
+
+slack_url = ""
+
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Build app and upload internally"
+  lane :distribute_adhoc do |options| 
+
+    get_certificates(
+      development: false,
+    )
+
+    get_provisioning_profile(
+      adhoc: true,
+      app_identifier: options[:app_id]
+    )
+
+    build_app(
+      workspace: workspace,
+      scheme: options[:scheme],
+      clean: true,
+      silent: true,
+      export_options: {
+      method: "ad-hoc",
+        provisioningProfiles: { 
+          options[:app_id] => options[:provisioning_profile],
+        }
+      },
+      output_directory: "build"
+    )
+
+    crashlytics(
+      api_token: crashlytics_api_token, 
+      build_secret: crashlytics_build_secret,
+      groups: crashlytics_groups
+    )
+
+    slack(
+      message: "New build is available on Crashlytics",
+      slack_url: slack_url,
+      default_payloads: [:lane, :git_branch]
+    )
+
+  end
+
+  lane :dev do
+    
+    distribute_adhoc(app_id: app_id_dev, provisioning_profile: provisioning_profile_dev, scheme: scheme_dev)
+
+  end
+
+  lane :staging do
+
+    distribute_adhoc(app_id: app_id_staging, provisioning_profile: provisioning_profile_staging, scheme: scheme_staging)
+
+  end
+
+  lane :prod do
+    
+    distribute_adhoc(app_id: app_id_prod, provisioning_profile: provisioning_profile_prod, scheme: scheme_prod)
+
+  end
+
+end
