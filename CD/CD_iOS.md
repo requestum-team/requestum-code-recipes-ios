@@ -1,6 +1,6 @@
-#Continuous Deployment
+## Continuous Deployment
 
-##Project
+### Project
 
 1. Only one target
 2. Add Config folder with Development.xcconfig, Staging.xcconfig, Production.xcconfig (files are not Target Membership)
@@ -10,23 +10,23 @@
 //  Development.xcconfig
 //
 //
-//  Created by Alex Kovalov.
+//  Created by Requestum.
 //  Copyright © 2019 Requestum. All rights reserved.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "Pods/Target Support Files/Pods-Increase/Pods-TownApp.development-debug.xcconfig"
-#include "Pods/Target Support Files/Pods-Increase/Pods-TownApp.development-release.xcconfig"
+#include "Pods/Target Support Files/Pods-App/Pods-App.development-debug.xcconfig"
+#include "Pods/Target Support Files/Pods-App/Pods-App.development-release.xcconfig"
 
 SERVER_ENVIRONMENT = development
 
-PRODUCT_BUNDLE_IDENTIFIER = com.town.app.beta
+PRODUCT_BUNDLE_IDENTIFIER = com.app.id
 
-APP_NAME = TownDevelopment
+APP_NAME = App
 APP_VERSION = 1.0
-APP_BUILD_NUMBER = 51
+APP_BUILD_NUMBER = 1
 
 ```
 
@@ -100,11 +100,11 @@ Archive -> Development-Release
         
         switch ServerAPI.environment {
         case .development:
-            return "https://increase.requestumdemo.com/"
+            return "https://"
         case .staging:
-            return "https://api.staging.increase.global/"
+            return "https://"
         case .production:
-            return "https://api.increase.global/"
+            return "https://"
         }
     }
 ```
@@ -123,25 +123,25 @@ team_id("2RDN27XWZH")
 Fastfile
 
 ```
-workspace = "TownApp.xcworkspace"
+workspace = "App.xcworkspace"
 
-scheme_dev = "TownAppDevelopment"
-scheme_staging = "TownAppStaging"
-scheme_prod = "TownAppProduction"
+scheme_dev = "AppDevelopment"
+scheme_staging = "AppStaging"
+scheme_prod = "AppProduction"
 
-provisioning_profile_dev = "com.town.app.beta AdHoc"
-provisioning_profile_staging = "com.town.app.beta AdHoc"
-provisioning_profile_prod = "com.town.app AdHoc"
+provisioning_profile_dev = "com.app.app.beta AdHoc"
+provisioning_profile_staging = "com.app.app.beta AdHoc"
+provisioning_profile_prod = "com.app.app AdHoc"
 
-app_id_dev = "com.town.app.beta"
-app_id_staging = "com.town.app.beta"
-app_id_prod = "com.town.app"
+app_id_dev = "com.app.app.beta"
+app_id_staging = "com.app.app.beta"
+app_id_prod = "com.app.app"
 
-crashlytics_api_token = "d66e6c7725accf55413336b52b55d88363d05144"
-crashlytics_build_secret = "716cec6bfb758c1e040ac9eec183c418ecb286d14193f1c4f4b9d79a07316afe"
+crashlytics_api_token = ""
+crashlytics_build_secret = ""
 crashlytics_groups = "rq"
 
-slack_url = "https://hooks.slack.com/services/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"
+slack_url = ""
 
 
 default_platform(:ios)
@@ -210,8 +210,3 @@ end
 ```
 
 3. Run `fastlane staging` or other lane name
-
-
-
-
-
