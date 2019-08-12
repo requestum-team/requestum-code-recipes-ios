@@ -1,0 +1,27 @@
+platform :ios, '11.0'
+
+use_frameworks!
+inhibit_all_warnings!
+
+target 'Visyn' do
+  
+  pod 'SDWebImage'
+  pod 'R.swift'
+  pod 'SwiftLint'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'SVProgressHUD'
+  pod 'Firebase/Analytics'
+  pod 'KeychainAccess'
+  pod 'Default'
+  pod 'IQKeyboardManagerSwift'
+  
+end
+
+target 'FRIDAY' do
+
+  pod 'Alamofire'
+  pod 'AlamofireNetworkActivityIndicator'
+  pod 'AlamofireNetworkActivityLogger'
+  
+end

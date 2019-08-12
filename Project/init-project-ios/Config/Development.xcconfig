@@ -1,0 +1,21 @@
+//
+//  Development.xcconfig
+//
+//
+//  Created by Alex Kovalov.
+//  Copyright © 2019 Requestum. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-App/Pods-App.development-debug.xcconfig"
+#include "Pods/Target Support Files/Pods-App/Pods-App.development-release.xcconfig"
+
+SERVER_ENVIRONMENT = development
+
+PRODUCT_BUNDLE_IDENTIFIER = com.app.app
+
+APP_NAME = App
+APP_VERSION = 1.0
+APP_BUILD_NUMBER = 1
