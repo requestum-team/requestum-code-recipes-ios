@@ -33,11 +33,10 @@ APP_BUILD_NUMBER = 1
 3. Create Configurations by duplicating Debug and Release configurations in the project like `Production-Debug`, `Staging-Release`. Set corresponding xcconfig files to each configuration
 4. Set Info.plist as 
 
-Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)`<br>
-(and in General tab of project settings leave empty)<br>
+Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)` (in General tab make empty)<br>
 Bundle versions string, short - `$(APP_VERSION)`<br>
 Bundle version - `$(APP_BUILD_NUMBER)`<br>
-Bundle name - `$(APP_NAME)`<br>
+Bundle name - `$(APP_NAME)` (in General tab make empty)<br>
 ServerEnvironment - `$(SERVER_ENVIRONMENT)`<br>
 
 5. Google plist run script before compile (plist files should not be included in target) `<APP_FOLDER>` заменить на правильное
