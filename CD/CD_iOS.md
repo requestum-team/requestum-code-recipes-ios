@@ -23,10 +23,10 @@
 SERVER_ENVIRONMENT = development
 
 PRODUCT_BUNDLE_IDENTIFIER = com.app.id
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 9
 
 APP_NAME = App
-APP_VERSION = 1.0
-APP_BUILD_NUMBER = 1
 
 ```
 
@@ -34,8 +34,8 @@ APP_BUILD_NUMBER = 1
 4. Set Info.plist as 
 
 Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)` (in General tab make empty)<br>
-Bundle versions string, short - `$(APP_VERSION)`<br>
-Bundle version - `$(APP_BUILD_NUMBER)`<br>
+Bundle versions string, short - `$(MARKETING_VERSION)`<br>
+Bundle version - `$(CURRENT_PROJECT_VERSION)`<br>
 Bundle name - `$(APP_NAME)` (in General tab make empty)<br>
 ServerEnvironment - `$(SERVER_ENVIRONMENT)`<br>
 
