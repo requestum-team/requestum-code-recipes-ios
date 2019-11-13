@@ -35,7 +35,7 @@
 
   </details>
 
-*  **Use 2 spaces to indent lines.**
+*  **Use 4 spaces to indent lines.**
 
 * **Trim trailing whitespace in all lines.**
 
