@@ -3,7 +3,7 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
-target 'Visyn' do
+target 'InitProject' do
   
   pod 'SDWebImage'
   pod 'R.swift'

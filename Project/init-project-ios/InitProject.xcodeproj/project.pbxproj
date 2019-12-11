@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C629D1D7AA68A82565C3C96 /* Pods_Visyn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF4C57EA1D7AB5805B697EA /* Pods_Visyn.framework */; };
 		9D31B2FE22FC6F2A00D0231E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31B2FD22FC6F2A00D0231E /* R.generated.swift */; };
 		9D31B33522FD734900D0231E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31B30222FD734900D0231E /* UserSession.swift */; };
 		9D31B33622FD734900D0231E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31B30322FD734900D0231E /* AlertManager.swift */; };
@@ -73,6 +72,7 @@
 		9DE5864C22FC6A3E005059C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5864B22FC6A3E005059C7 /* Assets.xcassets */; };
 		9DE5864F22FC6A3E005059C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5864D22FC6A3E005059C7 /* LaunchScreen.storyboard */; };
 		A9B1FB33F6897A8EDCA8B8FA /* Pods_FRIDAY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10CCC2FBDACDD16506720A51 /* Pods_FRIDAY.framework */; };
+		B29720A35993F2A856A5CF20 /* Pods_InitProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8644150B57FD3874553F1164 /* Pods_InitProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,17 +102,13 @@
 /* Begin PBXFileReference section */
 		10CCC2FBDACDD16506720A51 /* Pods_FRIDAY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRIDAY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1116FAF7B531D0203ECCE8BD /* Pods-FRIDAY.production-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.production-debug.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.production-debug.xcconfig"; sourceTree = "<group>"; };
-		11A649A2A53D514FB650344D /* Pods-Visyn.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.production-release.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.production-release.xcconfig"; sourceTree = "<group>"; };
-		172F93FA75CCD60927343ADD /* Pods-Visyn.staging-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.staging-debug.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.staging-debug.xcconfig"; sourceTree = "<group>"; };
+		12019E7E814DB07BA925BE0D /* Pods-InitProject.development-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.development-debug.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.development-debug.xcconfig"; sourceTree = "<group>"; };
 		209DF8CF4988FA622DCAE3D8 /* Pods-FRIDAY.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.production-release.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.production-release.xcconfig"; sourceTree = "<group>"; };
-		550B080F069B7625B2C5EBC7 /* Pods-Visyn.staging-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.staging-release.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.staging-release.xcconfig"; sourceTree = "<group>"; };
-		56563FCE5352F12B783690D8 /* Pods-FRIDAY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.release.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.release.xcconfig"; sourceTree = "<group>"; };
+		55F51A8246FD269CF5D7674C /* Pods-InitProject.development-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.development-release.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.development-release.xcconfig"; sourceTree = "<group>"; };
 		681F654339FB15B34215E47D /* Pods-FRIDAY.staging-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.staging-debug.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.staging-debug.xcconfig"; sourceTree = "<group>"; };
-		7AAB99FB1A068A4C80B62CD1 /* Pods-Visyn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.debug.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.debug.xcconfig"; sourceTree = "<group>"; };
-		7AF4C57EA1D7AB5805B697EA /* Pods_Visyn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Visyn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DDC490BEB189204B2CDE639 /* Pods-Visyn.development-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.development-debug.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.development-debug.xcconfig"; sourceTree = "<group>"; };
-		857C111FE5B25E163D78FC19 /* Pods-Visyn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.release.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.release.xcconfig"; sourceTree = "<group>"; };
+		8644150B57FD3874553F1164 /* Pods_InitProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InitProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90998D29AF5F4F88195F2B93 /* Pods-FRIDAY.development-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.development-release.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.development-release.xcconfig"; sourceTree = "<group>"; };
+		96CBF78CF340B48F4EBBABE9 /* Pods-InitProject.staging-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.staging-release.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.staging-release.xcconfig"; sourceTree = "<group>"; };
 		9D31B2FD22FC6F2A00D0231E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		9D31B30222FD734900D0231E /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		9D31B30322FD734900D0231E /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -179,11 +175,11 @@
 		9DE5864B22FC6A3E005059C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DE5864E22FC6A3E005059C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DE5865022FC6A3E005059C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6E40E661D3BBB40CE76809B /* Pods-FRIDAY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.debug.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.debug.xcconfig"; sourceTree = "<group>"; };
-		AC9B713365420C3C9804F735 /* Pods-Visyn.development-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.development-release.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.development-release.xcconfig"; sourceTree = "<group>"; };
 		ACCAD019803EA632C7E76E6B /* Pods-FRIDAY.staging-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.staging-release.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.staging-release.xcconfig"; sourceTree = "<group>"; };
 		C3175BC647937BEEA7C0CD72 /* Pods-FRIDAY.development-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRIDAY.development-debug.xcconfig"; path = "Target Support Files/Pods-FRIDAY/Pods-FRIDAY.development-debug.xcconfig"; sourceTree = "<group>"; };
-		D44BA64CE583BC24ECE8DD2B /* Pods-Visyn.production-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Visyn.production-debug.xcconfig"; path = "Target Support Files/Pods-Visyn/Pods-Visyn.production-debug.xcconfig"; sourceTree = "<group>"; };
+		D3FCE7A731CA92B1F5343BF9 /* Pods-InitProject.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.production-release.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.production-release.xcconfig"; sourceTree = "<group>"; };
+		E7A845A968DA2A7F52F6BC3C /* Pods-InitProject.production-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.production-debug.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.production-debug.xcconfig"; sourceTree = "<group>"; };
+		F5584F14DCA0EEC1EB2DCBBE /* Pods-InitProject.staging-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InitProject.staging-debug.xcconfig"; path = "Target Support Files/Pods-InitProject/Pods-InitProject.staging-debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,8 +195,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C629D1D7AA68A82565C3C96 /* Pods_Visyn.framework in Frameworks */,
 				9D31B36623016C3A00D0231E /* FRIDAY.framework in Frameworks */,
+				B29720A35993F2A856A5CF20 /* Pods_InitProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,22 +206,18 @@
 		68903F35CCE6488462205F22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7AAB99FB1A068A4C80B62CD1 /* Pods-Visyn.debug.xcconfig */,
-				857C111FE5B25E163D78FC19 /* Pods-Visyn.release.xcconfig */,
-				A6E40E661D3BBB40CE76809B /* Pods-FRIDAY.debug.xcconfig */,
-				56563FCE5352F12B783690D8 /* Pods-FRIDAY.release.xcconfig */,
 				C3175BC647937BEEA7C0CD72 /* Pods-FRIDAY.development-debug.xcconfig */,
 				1116FAF7B531D0203ECCE8BD /* Pods-FRIDAY.production-debug.xcconfig */,
 				681F654339FB15B34215E47D /* Pods-FRIDAY.staging-debug.xcconfig */,
 				90998D29AF5F4F88195F2B93 /* Pods-FRIDAY.development-release.xcconfig */,
 				209DF8CF4988FA622DCAE3D8 /* Pods-FRIDAY.production-release.xcconfig */,
 				ACCAD019803EA632C7E76E6B /* Pods-FRIDAY.staging-release.xcconfig */,
-				7DDC490BEB189204B2CDE639 /* Pods-Visyn.development-debug.xcconfig */,
-				D44BA64CE583BC24ECE8DD2B /* Pods-Visyn.production-debug.xcconfig */,
-				172F93FA75CCD60927343ADD /* Pods-Visyn.staging-debug.xcconfig */,
-				AC9B713365420C3C9804F735 /* Pods-Visyn.development-release.xcconfig */,
-				11A649A2A53D514FB650344D /* Pods-Visyn.production-release.xcconfig */,
-				550B080F069B7625B2C5EBC7 /* Pods-Visyn.staging-release.xcconfig */,
+				12019E7E814DB07BA925BE0D /* Pods-InitProject.development-debug.xcconfig */,
+				E7A845A968DA2A7F52F6BC3C /* Pods-InitProject.production-debug.xcconfig */,
+				F5584F14DCA0EEC1EB2DCBBE /* Pods-InitProject.staging-debug.xcconfig */,
+				55F51A8246FD269CF5D7674C /* Pods-InitProject.development-release.xcconfig */,
+				D3FCE7A731CA92B1F5343BF9 /* Pods-InitProject.production-release.xcconfig */,
+				96CBF78CF340B48F4EBBABE9 /* Pods-InitProject.staging-release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -233,8 +225,8 @@
 		6E62C238526882E64D8BE01B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7AF4C57EA1D7AB5805B697EA /* Pods_Visyn.framework */,
 				10CCC2FBDACDD16506720A51 /* Pods_FRIDAY.framework */,
+				8644150B57FD3874553F1164 /* Pods_InitProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -691,7 +683,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Visyn-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InitProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -704,15 +696,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Visyn/Pods-Visyn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-InitProject/Pods-InitProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Visyn/Pods-Visyn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-InitProject/Pods-InitProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Visyn/Pods-Visyn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InitProject/Pods-InitProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D31B2FA22FC6E2500D0231E /* SwiftLint */ = {
@@ -1025,7 +1017,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1131,7 +1123,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1243,7 +1235,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1349,7 +1341,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1516,7 +1508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1537,7 +1529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

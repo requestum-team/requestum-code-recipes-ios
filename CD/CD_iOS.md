@@ -22,24 +22,26 @@
 
 SERVER_ENVIRONMENT = development
 
-PRODUCT_BUNDLE_IDENTIFIER = com.app.id
+CUSTOM_PRODUCT_BUNDLE_IDENTIFIER = com.app.id
 MARKETING_VERSION = 1.0
-CURRENT_PROJECT_VERSION = 9
+CURRENT_PROJECT_VERSION = 1
 
 APP_NAME = App
-
 ```
 
 3. Create Configurations by duplicating Debug and Release configurations in the project like `Production-Debug`, `Staging-Release`. Set corresponding xcconfig files to each configuration
+
 4. Set Info.plist as 
 
-Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)` (in General tab make empty)<br>
+Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)`
 Bundle versions string, short - `$(MARKETING_VERSION)`<br>
 Bundle version - `$(CURRENT_PROJECT_VERSION)`<br>
 Bundle name - `$(APP_NAME)` (in General tab make empty)<br>
 ServerEnvironment - `$(SERVER_ENVIRONMENT)`<br>
 
-5. Google plist run script before compile (plist files should not be included in target) `<APP_FOLDER>` заменить на правильное
+5. In Target Build Settings for `Product Bundle Identifier` set `${CUSTOM_PRODUCT_BUNDLE_IDENTIFIER}`. It will set bundle ids (from .xcconfig files) to each configuration. After this in General tab the Bundle identifier will be shown like <Multiple values> and in tab Signing & Capabilities will be multiple items (per each bundle id) or just one if bundle id is the same for all configurations.
+
+6. (If needed) Google plist run script before compile (plist files should not be included in target) `<APP_FOLDER>` заменить на правильное
 
 ```
 PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/<APP_FOLDER>/Resources/Google"
@@ -60,7 +62,7 @@ cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-production.plist" "${BUILT_PROD
 esac
 ```
 
-6. Create Shared schemes
+7. Create Shared schemes
 
 <APP_NAME>Development<br>
 <APP_NAME>Staging<br>
@@ -77,7 +79,7 @@ Analyze -> Development-Debug
 Archive -> Development-Release
 ```
 
-7. ServerAPI should handle diffrent envs
+8. ServerAPI should handle diffrent envs
 
 ```
 	enum Environment: String {
@@ -108,6 +110,7 @@ Archive -> Development-Release
     }
 ```
 
+9. Run each scheme (which means each configuration) on the simulator (or device) to make sure they work and in case of different bundle ids - different applications. 
 
 ##Fastlane
 
