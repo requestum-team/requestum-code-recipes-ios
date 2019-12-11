@@ -26,9 +26,9 @@ It is preferred to set production client's organization and bundle id initially.
 
 5. Set minimum iOS target to the previous major version (if iOS 12 is the latest, then iOS 11.0)
 
-6. Add `.gitignore` file in the root folder, use https://github.com/github/gitignore to find appropriate files for the used programming language and computer OS (combine in one file [iOS.gitignore](/iOS.gitignore))
+6. Add `.gitignore` file in the root folder, use https://github.com/github/gitignore to find appropriate files for the used programming language and computer OS (combine in one file [iOS.gitignore](./iOS.gitignore))
 
-7. Add `Cocoapods`, libraries included by default for a client-server [Podfile](/Podfile). `Pods folder should be included in .gitignore` 
+7. Add `Cocoapods`, libraries included by default for a client-server [Podfile](./Podfile). `Pods folder should be included in .gitignore` 
 
 8. Add `SwiftLint` [Codestyle](../Codestyle)
 
@@ -36,7 +36,7 @@ It is preferred to set production client's organization and bundle id initially.
 
 10. Add `Crashlytics` in Firebase (preffered to use client's project from the start)
 
-11. Use basic init project example for reference of what classes and structure to use [init-project-ios](/init-project-ios)
+11. Use basic init project example for reference of what classes and structure to use [init-project-ios](./init-project-ios)
 
 12. `Run` app, make sure everything is ok
 
