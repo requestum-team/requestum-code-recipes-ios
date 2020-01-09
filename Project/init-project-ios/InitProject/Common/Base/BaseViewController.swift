@@ -43,6 +43,13 @@ extension BaseViewController {
             var message = "Environment: \(App.api.rawValue)"
             message += "\nVersion: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "")(\(Bundle.main.infoDictionary?["CFBundleVersion"] ?? ""))"
             
+            let logAction = UIAlertAction(title: "Logs", style: .default) { _ in
+                if let  controller = Wormholy.wormholyFlow {
+                    UIApplication.topViewController()?.present(controller, animated: true, completion: nil)
+                }
+            }
+            let okAction = UIAlertAction(title: "Ok", style: .default) { _ in }
+            AlertManager.showAlert(withTitle: "Info", message: message, actions: [logAction, okAction], style: .alert)
         }
     }
 }
