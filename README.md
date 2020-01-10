@@ -36,6 +36,8 @@
 <br>
 [XibBasedView](Helpers/XibBasedView.swift) - for view with .xib
 <br>
+[ImagePicker](Helpers/ImagePicker.swift) - easy to use picker for images/video from gallery or camera
+<br>
 
 ### Managers
 
