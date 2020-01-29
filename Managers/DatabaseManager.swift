@@ -10,9 +10,9 @@ import Foundation
 
 import RealmSwift
 
-fileprivate let StoreFileNameDefault = "default"
-fileprivate let StoreFileExtension = "realm"
-fileprivate let StoreFileDirectory = ""
+let storeFileNameDefault = "default"
+let storeFileExtension = "realm"
+let storeFileDirectory = ""
 
 class DatabaseManager: NSObject {
     
@@ -23,7 +23,7 @@ class DatabaseManager: NSObject {
     
     // MARK: Lifecycle
     
-    init(storeName: String = StoreFileNameDefault) {
+    init(storeName: String = storeFileNameDefault) {
         super.init()
         
         var config = Realm.Configuration()
@@ -35,7 +35,7 @@ class DatabaseManager: NSObject {
         Realm.Configuration.defaultConfiguration = config
     }
     
-    static func deleteStoreFile(_ storeName: String = StoreFileNameDefault) {
+    static func deleteStoreFile(_ storeName: String = storeFileNameDefault) {
         
         let fileURL = storeFileURL()
         if FileManager.default.fileExists(atPath: fileURL.path) {
@@ -43,9 +43,9 @@ class DatabaseManager: NSObject {
         }
     }
     
-    static func storeFileURL(_ storeName: String = StoreFileNameDefault) -> URL {
+    static func storeFileURL(_ storeName: String = storeFileNameDefault) -> URL {
         
-        let relativeFp = StoreFileDirectory + "/" + storeName + "." + StoreFileExtension
+        let relativeFp = storeFileDirectory + "/" + storeName + "." + storeFileExtension
         let fileURL = FileManager.default.applicationDocumentsDirectory.appendingPathComponent(relativeFp)
         
         FileManager.default.ensureDirectoryExists(forFileURL: fileURL)
@@ -60,35 +60,35 @@ class DatabaseManager: NSObject {
     
     func addObject(_ object: Object) {
         
-        write { (realm) in
-            realm.add(object, update: true)
+        write { realm in
+            realm.add(object, update: .all)
         }
     }
     
     func addArray(_ array: [Object]) {
         
-        write { (realm) in
-            realm.add(array, update: true)
+        write { realm in
+            realm.add(array, update: .all)
         }
     }
     
     func change(_ changesBlock: () -> Void) {
         
-        write { (realm) in
+        write { _ in
             changesBlock()
         }
     }
     
     func deleteObject(_ object: Object) {
         
-        write { (realm) in
+        write { realm in
             realm.delete(object)
         }
     }
     
     func deleteArray(_ array: [Object]) {
         
-        write { (realm) in
+        write { realm in
             realm.delete(array)
         }
     }
@@ -100,8 +100,7 @@ class DatabaseManager: NSObject {
             try realm.safeWrite {
                 changes(realm)
             }
-        }
-        catch (let error as NSError) {
+        } catch let error as NSError {
             
             print(error.description)
         }
@@ -127,7 +126,6 @@ class DatabaseManager: NSObject {
 
 
 // MARK: Safe write
-
 extension Realm {
     
     public func safeWrite(_ block: (() throws -> Void)) throws {
@@ -142,7 +140,6 @@ extension Realm {
 
 
 // MARK: Objects for Key
-
 extension DatabaseManager {
     
     func objectsForKey<T: Object, V>(_ type: T.Type, key: String, value: V) -> Results<T> {
