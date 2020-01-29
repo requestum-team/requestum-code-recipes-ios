@@ -33,7 +33,7 @@ APP_NAME = App
 
 4. Set Info.plist as 
 
-Bundle identifier - `$(PRODUCT_BUNDLE_IDENTIFIER)`
+Bundle identifier - `$(CUSTOM_PRODUCT_BUNDLE_IDENTIFIER)`
 Bundle versions string, short - `$(MARKETING_VERSION)`<br>
 Bundle version - `$(CURRENT_PROJECT_VERSION)`<br>
 Bundle name - `$(APP_NAME)` (in General tab make empty)<br>
@@ -47,9 +47,6 @@ ServerEnvironment - `$(SERVER_ENVIRONMENT)`<br>
 PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/<APP_FOLDER>/Resources/Google"
 
 case "${CONFIGURATION}" in
-
-"Development-Debug" | "Development-Release" )
-cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-development.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
 
 "Staging-Debug" | "Staging-Release" )
 cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-staging.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
@@ -127,24 +124,19 @@ Fastfile
 ```
 workspace = "App.xcworkspace"
 
-scheme_dev = "AppDevelopment"
 scheme_staging = "AppStaging"
 scheme_prod = "AppProduction"
 
-provisioning_profile_dev = "com.app.app.beta AdHoc"
-provisioning_profile_staging = "com.app.app.beta AdHoc"
-provisioning_profile_prod = "com.app.app AdHoc"
+prov_profile_staging = "com.app.staging AdHoc"
+prov_profile_prod = "com.app.app AdHoc"
 
-app_id_dev = "com.app.app.beta"
-app_id_staging = "com.app.app.beta"
+app_id_staging = "com.app.staging"
 app_id_prod = "com.app.app"
-
-crashlytics_api_token = ""
-crashlytics_build_secret = ""
-crashlytics_groups = "rq"
 
 slack_url = ""
 
+firebase_app_id_staging = ""
+firebase_app_id_prod = ""
 
 default_platform(:ios)
 
@@ -168,7 +160,7 @@ platform :ios do
       clean: true,
       silent: true,
       export_options: {
-      method: "ad-hoc",
+        method: "ad-hoc",
         provisioningProfiles: { 
           options[:app_id] => options[:provisioning_profile],
         }
@@ -176,35 +168,28 @@ platform :ios do
       output_directory: "build"
     )
 
-    crashlytics(
-      api_token: crashlytics_api_token, 
-      build_secret: crashlytics_build_secret,
-      groups: crashlytics_groups
+    firebase_app_distribution(
+      app: options[:firebase_app_id],
+      groups: "qa"
     )
 
     slack(
-      message: "New build is available on Crashlytics",
+      message: "New build is available on Firebase App Distribution",
       slack_url: slack_url,
       default_payloads: [:lane, :git_branch]
     )
 
   end
 
-  lane :dev do
-    
-    distribute_adhoc(app_id: app_id_dev, provisioning_profile: provisioning_profile_dev, scheme: scheme_dev)
-
-  end
-
   lane :staging do
 
-    distribute_adhoc(app_id: app_id_staging, provisioning_profile: provisioning_profile_staging, scheme: scheme_staging)
+    distribute_adhoc(app_id: app_id_staging, provisioning_profile: prov_profile_staging, scheme: scheme_staging, firebase_app_id: firebase_app_id_staging)
 
   end
 
   lane :prod do
     
-    distribute_adhoc(app_id: app_id_prod, provisioning_profile: provisioning_profile_prod, scheme: scheme_prod)
+    distribute_adhoc(app_id: app_id_prod, provisioning_profile: prov_profile_prod, scheme: scheme_prod, firebase_app_id: firebase_app_id_prod)
 
   end
 
