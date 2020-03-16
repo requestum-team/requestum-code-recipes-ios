@@ -34,9 +34,9 @@ It is preferred to set production client's organization and bundle id initially.
 
 9. Add `R.swift` https://github.com/mac-cain13/R.swift
 
-10. Add `Crashlytics` in Firebase (preffered to use client's project from the start)
+10. Add `Crashlytics` in Firebase (use client's project from the start)
 
-11. Use basic init project example for reference of what classes and structure to use [init-project-ios](./init-project-ios)
+11. Use basic init project example for reference of what classes and structure to use [init-project-ios](./init-project-ios) (can be outdated)
 
 12. `Run` app, make sure everything is ok
 
