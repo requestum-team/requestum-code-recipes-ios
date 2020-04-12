@@ -9,7 +9,6 @@
 import Foundation
 
 import Alamofire
-import ObjectMapper
 
 extension DataResponse {
     
@@ -25,33 +24,36 @@ extension DataResponse {
     }
     
     
-    // MARK: - Result Mapping
+    // MARK: - Result decode
     
-    func resultObject<T: Mappable>() -> T? {
+    func resultObject<T: Decodable>() -> T? {
         
-        if let JSON = JSON() {
-            if let obj = Mapper<T>().map(JSON: JSON) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
+        if let data = data {
+            if let obj = try? decoder.decode(T.self, from: data) {
                 return obj
             }
         }
         return nil
     }
     
-    func resultArray<T: Mappable>(by key: String? = nil) -> [T]? {
+    func resultArray<T: Decodable>(by key: String? = nil) -> [T]? {
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         
         if let strongKey = key {
-            if let JSONArray = JSON()?[strongKey] as? [[String: Any]] {
-                
-                let objs = Mapper<T>().mapArray(JSONArray: JSONArray)
-                return objs
-            } else {
-                return nil
+            if let data = data {
+                if let obj = try? decoder.decode([String: [T]].self, from: data) {
+                    return obj[strongKey]
+                }
             }
-        }
-            
-        else if let JSONArray = JSONArray() {
-            let objs = Mapper<T>().mapArray(JSONArray: JSONArray)
-            return objs
+        } else if let data = data {
+            if let array = try? decoder.decode([T].self, from: data) {
+                return array
+            }
         }
         return nil
     }
@@ -61,11 +63,11 @@ extension DataResponse {
     
     func JSON() -> [String: Any]? {
         
-        var JSON: [String : Any]?
+        var JSON: [String: Any]?
         
         if let json = result.value as? [String: Any] {
             JSON = json
-        } else if (data != nil), let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String : Any] {
+        } else if let data = data, let json = ((try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]) as [String: Any]??) {
             JSON = json
         }
         

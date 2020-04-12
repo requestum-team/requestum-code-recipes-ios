@@ -10,6 +10,27 @@ import UIKit
 
 final class AlertManager: NSObject {
     
+    enum SettingsAlertType {
+        
+        case mediaAccess
+        case microphoneAccess
+        case phoneContactsAccess
+        case photoLibraryAccess
+        
+        var description: String {
+            switch self {
+            case .mediaAccess:
+                return R.string.alert.enableMediaSettings()
+            case .microphoneAccess:
+                return R.string.alert.enableMicrophoneLibrarySettings()
+            case .phoneContactsAccess:
+                return R.string.alert.enablePhoneContactSettings()
+            case .photoLibraryAccess:
+                return R.string.alert.photoLibraryOption()
+            }
+        }
+    }
+    
     static var topViewController: UIViewController? {
         return UIApplication.topViewController()
     }
@@ -60,6 +81,20 @@ final class AlertManager: NSObject {
         } else {
             alert.addAction(UIAlertAction(title: R.string.alert.ok(), style: .default, handler: nil))
         }
+        topViewController?.present(alert, animated: true, completion: nil)
+    }
+        
+    static func showSettingsAlert(_ error: NSError? = nil, settingsAlertType: SettingsAlertType) {
+        
+        let alert = UIAlertController(title: R.string.alert.settings(), message: settingsAlertType.description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.alert.settings(), style: .default) { _ in
+            
+            let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.shared.open(url, options: [:]) { _ in }
+            }
+        })
+        alert.addAction(UIAlertAction(title: R.string.alert.cancel(), style: .cancel, handler: nil))
         topViewController?.present(alert, animated: true, completion: nil)
     }
 }

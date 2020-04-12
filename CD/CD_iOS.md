@@ -33,7 +33,7 @@ APP_NAME = App
 
 4. Set Info.plist as 
 
-Bundle identifier - `$(CUSTOM_PRODUCT_BUNDLE_IDENTIFIER)`
+Bundle identifier - `$(CUSTOM_PRODUCT_BUNDLE_IDENTIFIER)`<br>
 Bundle versions string, short - `$(MARKETING_VERSION)`<br>
 Bundle version - `$(CURRENT_PROJECT_VERSION)`<br>
 Bundle name - `$(APP_NAME)` (in General tab make empty)<br>
@@ -107,6 +107,8 @@ Archive -> Development-Release
     }
 ```
 
+9. Set `Product Name` in Build Settings to `$(TARGET_NAME)` as it was by default (after above actions it could be set to empty and app will fail to build). Also it can be changed to env specific app name
+
 9. Run each scheme (which means each configuration) on the simulator (or device) to make sure they work and in case of different bundle ids - different applications. 
 
 ##Fastlane
@@ -115,8 +117,9 @@ Archive -> Development-Release
 2. Appfile
 
 ```
-apple_id("alex.kovalov@requestum.com")
-team_id("2RDN27XWZH")
+apple_id "<email>"
+team_id "<team_id>"
+itc_team_id "<itc_team_id>"
 ```
 
 Fastfile
@@ -124,25 +127,33 @@ Fastfile
 ```
 workspace = "App.xcworkspace"
 
+scheme_dev = "AppDevelopment"
 scheme_staging = "AppStaging"
 scheme_prod = "AppProduction"
 
-prov_profile_staging = "com.app.staging AdHoc"
-prov_profile_prod = "com.app.app AdHoc"
+prov_profile_dev_adhoc = "com.app.dev AdHoc"
+prov_profile_staging_adhoc = "com.app.staging AdHoc"
+prov_profile_prod_adhoc = "com.app.prod AdHoc"
 
+prov_profile_dev_appstore = "com.app.dev AppStore"
+prov_profile_staging_appstore = "com.app.staging AppStore"
+prov_profile_prod_appstore = "com.app.prod AppStore"
+
+app_id_dev = "com.app.dev"
 app_id_staging = "com.app.staging"
-app_id_prod = "com.app.app"
+app_id_prod = "com.app.prod"
 
 slack_url = ""
 
+firebase_app_id_dev = ""
 firebase_app_id_staging = ""
 firebase_app_id_prod = ""
+
 
 default_platform(:ios)
 
 platform :ios do
 
-  desc "Build app and upload internally"
   lane :distribute_adhoc do |options| 
 
     get_certificates(
@@ -181,19 +192,67 @@ platform :ios do
 
   end
 
-  lane :staging do
+  lane :distribute_appstore do |options| 
 
-    distribute_adhoc(app_id: app_id_staging, provisioning_profile: prov_profile_staging, scheme: scheme_staging, firebase_app_id: firebase_app_id_staging)
+    get_certificates(
+      development: false,
+    )
+
+    get_provisioning_profile(
+      adhoc: false,
+      app_identifier: options[:app_id]
+    )
+
+    build_app(
+      workspace: workspace,
+      scheme: options[:scheme],
+      clean: true,
+      silent: true,
+      export_options: {
+        method: "app-store",
+        provisioningProfiles: { 
+          options[:app_id] => options[:provisioning_profile],
+        }
+      },
+      output_directory: "build"
+    )
+
+    upload_to_testflight(
+      skip_submission: true, 
+      skip_waiting_for_build_processing: true
+    )
 
   end
 
-  lane :prod do
-    
-    distribute_adhoc(app_id: app_id_prod, provisioning_profile: prov_profile_prod, scheme: scheme_prod, firebase_app_id: firebase_app_id_prod)
+  lane :build do |options|
+
+    case options[:env] 
+    when "dev"
+      distribute_adhoc(app_id: app_id_dev, provisioning_profile: prov_profile_dev_adhoc, scheme: scheme_dev, firebase_app_id: firebase_app_id_dev)
+    when "staging"
+      distribute_adhoc(app_id: app_id_staging, provisioning_profile: prov_profile_staging_adhoc, scheme: scheme_staging, firebase_app_id: firebase_app_id_staging)
+    when "prod"
+      distribute_adhoc(app_id: app_id_prod, provisioning_profile: prov_profile_prod_adhoc, scheme: scheme_prod, firebase_app_id: firebase_app_id_prod)
+    end
+
+  end
+
+lane :deploy do |options|
+
+    case options[:env] 
+    when "dev"
+      distribute_appstore(app_id: app_id_dev, provisioning_profile: prov_profile_dev_appstore, scheme: scheme_dev)
+    when "staging"
+      distribute_appstore(app_id: app_id_staging, provisioning_profile: prov_profile_staging_appstore, scheme: scheme_staging)
+    when "prod"
+      distribute_appstore(app_id: app_id_prod, provisioning_profile: prov_profile_prod_appstore, scheme: scheme_prod)
+    end
 
   end
 
 end
 ```
 
-3. Run `fastlane staging` or other lane name
+3. To install Firebase App Distribution plugin run `bundle exec fastlane add_plugin firebase_app_distribution` (Note: v0.1.4 was broken, so used 0.1.3)
+
+3. Use like `bundle exec fastlane deploy env:dev`, `bundle exec fastlane build env:prod` and so on

@@ -11,8 +11,8 @@ import CFNetwork
 
 import Alamofire
 
-fileprivate let kServerURLResponse = "kServerURLResponse"
-fileprivate let kServerResponseData = "kServerResponseData"
+private let kServerURLResponse = "kServerURLResponse"
+private let kServerResponseData = "kServerResponseData"
 
 extension NSError {
     
@@ -64,6 +64,22 @@ extension NSError {
                         errorString = JSON["Error"] as? String
                     }
                     if errorString == nil {
+                        if let errors = JSON["errors"] as? [JSON] {
+                            for error in errors {
+                                if let errorDescription = error["description"] as? String {
+                                    errorString = "\(errorString ?? "")\(errorDescription)\n"
+                                }
+                            }
+                        }
+                    }
+                    if errorString == nil {
+                        
+                        if let message = JSON["message"] as? String {
+                            errorString = message
+                        }
+                    }
+                    
+                    if errorString == nil {
                         for key in JSON.keys {
                             if let errorDescription = (JSON[key] as? [String])?.first {
                                 errorString = (errorString ?? "").isEmpty ? "" : (errorString! + "\n")
@@ -71,11 +87,32 @@ extension NSError {
                             }
                         }
                     }
-                    
+                    if errorString == nil {
+                        if let fields = JSON["fields"] as? JSON {
+                            for field in fields {
+                                if let errorField = field.value as? JSON {
+                                    let fieldKey = field.key
+                                    if let errors = errorField["errors"] as? [JSON] {
+                                        for error in errors {
+                                            if let errorDescription = error["description"] as? String {
+                                                if fieldKey == "mention" {
+                                                    errorString = "\(errorString ?? "")\(R.string.alerts.username()) \(errorDescription.replacingOccurrences(of: "This value ", with: ""))\n"
+                                                } else {
+                                                    errorString = "\(errorString ?? "")\(fieldKey.capitalized) \(errorDescription.replacingOccurrences(of: "This value ", with: ""))\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if errorString == nil, let code = HTTPResponseCode, code >= 500 {
+                        errorString = R.string.alerts.somethingWentWrong()
+                    }
                     return errorString
                 }
-            }
-            catch (let error) {
+            } catch let error {
                 print(error)
             }
         }
@@ -119,7 +156,7 @@ extension NSError {
 
 // MARK: - Refresh Token Error for request validation
 
-fileprivate let kRefreshToken = "refreshToken"
+private let kRefreshToken = "refreshToken"
 
 extension NSError {
     

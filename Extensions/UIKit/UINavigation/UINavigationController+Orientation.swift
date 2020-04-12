@@ -1,9 +1,9 @@
 //
 //  UINavigationController+Orientation.swift
-//  Requestum
+//  
 //
-//  Created by Dima Hapich on 3/21/18.
-//  Copyright © 2018 Requestum. All rights reserved.
+//  Created by Requestum on 7/11/19.
+//  Copyright © 2019 Requestum. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ extension UINavigationController {
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         
-        return topViewController?.supportedInterfaceOrientations ?? .portrait
+        return topViewController?.supportedInterfaceOrientations ?? App.theme.supportedInterfaceOrientations
     }
     
     open override var shouldAutorotate: Bool {
@@ -22,12 +22,11 @@ extension UINavigationController {
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         
-        return topViewController?.preferredStatusBarStyle ?? .default
+        return topViewController?.preferredStatusBarStyle ?? App.theme.statusBarStyle
     }
     
     open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         
         return topViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
     }
-    
 }
