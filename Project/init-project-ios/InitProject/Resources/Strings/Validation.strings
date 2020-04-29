@@ -1,0 +1,11 @@
+/* 
+  Validation.strings
+  
+
+  Created by Alex Kovalov on 9/6/19.
+  Copyright © 2019 Requestum. All rights reserved.
+*/
+
+"Attribute.Is.Empty" = "%@ is empty";
+"Attribute.Is.Invalid" = "%@ is invalid";
+"Attributes.Do.Not.Match" = "%@ and %@ do not match";
